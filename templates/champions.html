@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Champions
+{% endblock %}
+
+{% block main %}
+
+    {% for summoner, champion in names %}
+        <div class="mb-3">
+            {{ summoner["summoner_name"] }} is playing {{ champion["champion_name"] }}
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
