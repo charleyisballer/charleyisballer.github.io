@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Summoner
+{% endblock %}
+
+{% block main %}
+    <h2>{{ summoner_id }}'s Most Recent Game:</h2>
+    <h3>Players</h3>
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              most recent game:
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {% for player in players %}
+                <div class="mb-3">
+                <b> {{ player.summoner_name }} </b> played {{ player.champion_name }} 
+                <img src="{{ url_for('static', filename='champion_icons/' + player['champ_img'] ~ '.png') }}" alt="Image {{ i }}" class="champion-icon">
+                . They were level {{ player.level }} with K/D/A of 
+                {{ player.kills }}/{{ player.deaths }}/{{ player.assists }}. They had {{ player.creepscore }} cs
+                </div>
+                <div class="mb-3">
+                    items:
+                    {% for i in range(7) %}
+                        <img src="{{ url_for('static', filename='item_icons/' + player['item' + i|string] ~ '.png') }}" alt="Image {{ i }}" class="item-icon">
+                    {% endfor %}
+                </div>
+        
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>
+    
+
+
+
+    
+
+
+{% endblock %}

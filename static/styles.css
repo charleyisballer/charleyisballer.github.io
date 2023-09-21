@@ -1,0 +1,18 @@
+.region-width {
+    width: 20px !important; /* Set your desired fixed width */
+}
+
+.summoner-width {
+    width: 200px !important; /* Set your desired fixed width */
+}
+
+.champion-icon {
+    width: 64px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.item-icon {
+    width: 64px;
+    height: auto;
+}
